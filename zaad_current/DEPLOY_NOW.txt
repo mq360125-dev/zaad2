@@ -1,0 +1,7 @@
+1) Stop the old server with Ctrl+C.
+2) Extract this project into a new folder.
+3) Run: py -m pip install -r requirements.txt
+4) Run: py seed.py
+5) Run: py -m uvicorn main:app --reload --host 127.0.0.1 --port 8000
+6) Open: http://127.0.0.1:8000/?v=20260831
+7) Hard refresh: Ctrl+Shift+R

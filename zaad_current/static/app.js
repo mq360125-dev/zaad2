@@ -1,0 +1,1 @@
+/* Compatibility loader: the redesigned site uses /script.js. */

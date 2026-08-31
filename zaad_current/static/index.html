@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#08111f">
+<meta name="description" content="زاد — دليلك للفرص التعليمية: منح دراسية، كورسات معتمدة، تطوع، وبرامج للطلاب من مصادرها الرسمية.">
+<title>زاد | دليل الفرص التعليمية</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A7%AD%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-glow"></div>
+  <div class="header-inner">
+    <a class="brand" href="/" aria-label="الرئيسية">
+      <span class="brand-mark"><span>زاد</span><i>ZAAD</i></span><span class="brand-copy"><strong>زاد</strong><small>دليل الفرص التعليمية</small></span>
+    </a>
+    <div class="header-actions"><button id="clear-filters" class="ghost-btn" type="button">إعادة ضبط</button></div>
+  </div>
+  <div class="search-shell">
+    <div class="search-wrap">
+      <span class="search-icon">⌕</span>
+      <input id="search-input" type="search" autocomplete="off" placeholder="ابحث عن منحة، كورس، لغة، دولة، جامعة أو مهارة..." aria-label="بحث" aria-controls="search-suggestions" aria-expanded="false">
+      <span id="search-count" class="search-count"></span>
+    </div>
+    <div id="search-suggestions" class="search-suggestions hidden" role="listbox" aria-label="اقتراحات البحث"></div>
+    <div class="quick-searches" aria-label="عمليات بحث سريعة">
+      <button type="button" data-quick-search="روسيا">🇷🇺 روسيا</button>
+      <button type="button" data-quick-search="روسي">🗣️ كورسات روسي</button>
+      <button type="button" data-quick-search="فرنسا">🇫🇷 فرنسا</button>
+      <button type="button" data-quick-search="منحة ممولة بالكامل">🎓 تمويل كامل</button>
+      <button type="button" data-quick-search="مجاني شهادة">🏅 مجاني + شهادة</button><button type="button" data-quick-search="تحت 18">🧑‍🎓 تحت 18</button>
+    </div>
+  </div>
+</header>
+<main class="container">
+  <section class="hero">
+    <div class="hero-copy"><span class="eyebrow"><span class="pulse-dot"></span> منصة الطالب الذكية</span><h1>كل طريق تعليمي مهم<br><strong>يبدأ من هنا.</strong></h1><p>منحة، كورس، لغة، تطوع أو برنامج عالمي — ابحث عنها في مكان واحد، وافتح التفاصيل قبل أن تغادر الموقع.</p><div class="hero-actions"><a href="#results-summary" class="hero-primary">استكشف الفرص الآن <span>↓</span></a><button type="button" class="hero-secondary" data-quick-search="منحة">🎓 ابدأ بالمنح</button></div></div>
+    <div class="hero-stats"><div><b id="hero-total">0</b><span>فرصة</span></div><div><b id="hero-platforms">0</b><span>منصة</span></div><div><b id="hero-free">0</b><span>خيار مجاني</span></div></div>
+  </section>
+  <section class="filters-panel" aria-label="الفلاتر"><div class="filter-heading"><div><span class="section-kicker">DISCOVER</span><h2>ابحث بالطريقة التي تفكر بها</h2><p>اكتب «روسيا» مثلًا لتحصل على المنح والفرص والكورسات والمنصات المرتبطة بها.</p></div><span class="smart-badge">⚡ بحث ذكي</span></div>
+    <div class="filter-row primary-tabs" id="tabs-nav">
+      <button class="tab-btn active" data-category="all">🌐 الكل</button><button class="tab-btn" data-category="scholarship">🎓 المنح</button><button class="tab-btn" data-category="course">💻 الكورسات</button><button class="tab-btn" data-category="volunteer">🤝 التطوع</button><button class="tab-btn" data-category="program">🚀 البرامج</button><button class="tab-btn" data-category="competition">🏆 المسابقات</button><button class="tab-btn" data-category="internship">💼 التدريبات</button><button class="tab-btn" data-category="platform">🏛️ المنصات</button><button class="tab-btn" data-category="under18">🧑‍🎓 تحت 18</button>
+    </div>
+    <div class="filter-toggle-row">
+      <button id="toggle-filters" class="filter-toggle-btn" type="button" aria-expanded="false" aria-controls="filter-grid">
+        <span>فلاتر متقدمة</span><span class="chevron">▾</span>
+      </button>
+    </div>
+    <div class="filter-grid" id="filter-grid">
+      <label><span>اللغة</span><select id="filter-language"><option value="">كل اللغات</option></select></label>
+      <label><span>المجال</span><select id="filter-category"><option value="">كل المجالات</option></select></label>
+      <label><span>نوع الشهادة</span><select id="filter-certificate"><option value="">كل أنواع الشهادات</option><option value="completion">شهادة إتمام / إنجاز</option><option value="professional">شهادة مهنية معتمدة</option><option value="academic">شهادة أكاديمية</option><option value="none">بدون شهادة معلنة</option></select></label>
+      <label><span>الدولة</span><select id="filter-country"><option value="">كل الدول</option></select></label>
+      <label><span>التمويل</span><select id="filter-funding"><option value="">كل أنواع التمويل</option><option value="free">مجاني</option><option value="fully">تمويل كامل</option><option value="partial">تمويل جزئي</option><option value="tuition">تغطية الرسوم</option></select></label>
+      <label><span>طريقة الدراسة/المشاركة</span><select id="filter-mode"><option value="">الكل</option><option value="online">أونلاين</option><option value="offline">حضوري</option></select></label>
+      <label><span>المستوى</span><select id="filter-level"><option value="">كل المستويات</option></select></label>
+      <label class="sort-label"><span>الترتيب</span><select id="filter-sort"><option value="relevance">الأكثر صلة</option><option value="deadline">الأقرب موعدًا</option><option value="newest">الأحدث تحققًا</option><option value="az">أبجديًا</option></select></label>
+    </div>
+  </section>
+  <section class="results-head"><div><h2 id="results-summary">جاري تجهيز الفرص...</h2><p>اضغط على أي بطاقة لفتح صفحة التفاصيل الكاملة، ثم انتقل إلى المصدر الرسمي.</p></div><span id="active-filter-label" class="active-filter-label"></span></section>
+  <div id="cards-grid" class="cards-grid" aria-live="polite"></div>
+  <div class="load-wrap"><button id="load-more-btn" class="load-more-btn hidden" type="button">تحميل المزيد</button></div>
+</main>
+<footer><div class="footer-brand"><span class="brand-mark mini"><span>زاد</span><i>ZAAD</i></span><div><strong>زاد</strong><small>دليل الفرص التعليمية للطلاب</small></div></div><div>مصادر رسمية • بحث ذكي • تفاصيل واضحة</div><div>© <span id="current-year"></span></div></footer>
+<div id="modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal-backdrop" data-close-modal></div><div class="modal-panel"><button class="modal-close" type="button" data-close-modal aria-label="إغلاق">×</button><div id="modal-content"></div></div>
+</div>
+<script src="script.js?v=20260830-final"></script>
+<script src="smart-search.js?v=20260830-2"></script>
+</body></html>

@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#070b19">
+<title>تفاصيل الفرصة | زاد</title>
+<style>
+:root{--bg:#070b19;--panel:#10162a;--panel2:#151d35;--line:#293554;--text:#f7f8ff;--muted:#aab5cf;--accent:#7664ff;--accent2:#9b8cff;--good:#43e0bb;--warn:#ffd166}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 80% 0,#17133d 0,transparent 32%),radial-gradient(circle at 10% 30%,#0e1b35 0,transparent 28%),var(--bg);color:var(--text);font-family:Tajawal,"Segoe UI",Arial,sans-serif;line-height:1.75}
+a{color:inherit}.page{width:min(1180px,calc(100% - 28px));margin:auto;padding:24px 0 70px}.topbar{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:22px}.back{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:#d9d5ff;border:1px solid var(--line);background:#0e1426;border-radius:14px;padding:10px 15px}.brand{font-weight:900;letter-spacing:.08em;font-size:24px}.brand span{color:var(--accent2)}
+.hero{position:relative;overflow:hidden;border:1px solid #303b61;border-radius:30px;padding:30px;background:linear-gradient(135deg,#111a36,#101328 60%,#17123a);box-shadow:0 25px 80px #0006}.hero:before{content:"";position:absolute;width:300px;height:300px;border:1px solid #8e7cff22;border-radius:50%;left:-100px;top:-120px}.badge{display:inline-flex;padding:7px 12px;border-radius:999px;background:#7564ff18;border:1px solid #8273ff55;color:#c7beff;font-weight:800}.hero-grid{position:relative;display:grid;grid-template-columns:1fr auto;gap:28px;align-items:start}.hero h1{font-size:clamp(30px,5vw,56px);line-height:1.2;margin:18px 0 10px}.provider{font-size:18px;color:#c3cce0}.intro{font-size:18px;color:#c9d2e6;max-width:850px}.primary{display:inline-flex;justify-content:center;align-items:center;gap:8px;background:linear-gradient(135deg,#7968ff,#5c48df);color:#fff;text-decoration:none;border-radius:15px;padding:13px 20px;font-weight:900;box-shadow:0 12px 35px #6652ff33;white-space:nowrap}
+.section{margin-top:22px;border:1px solid var(--line);border-radius:24px;background:#0e1426cc;padding:24px}.section h2{margin:0 0 15px;font-size:23px}.section-head{display:flex;align-items:center;justify-content:space-between;gap:12px}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.fact{min-height:96px;border:1px solid #293552;background:linear-gradient(145deg,#151c30,#111729);border-radius:17px;padding:15px}.fact .k{display:block;color:#7f91b4;font-size:13px;margin-bottom:7px}.fact .v{font-weight:800;font-size:16px;overflow-wrap:anywhere}.lists{display:grid;grid-template-columns:1fr 1fr;gap:18px}.listbox{border:1px solid #293552;border-radius:18px;padding:18px;background:#11182b}.listbox h3{margin:0 0 10px}.listbox ul,.listbox ol{margin:0;padding-right:22px;color:#d3daea}.listbox li{margin:7px 0}.source{border-color:#3d4c7b;background:linear-gradient(135deg,#101a33,#11152b)}.source-row{display:flex;align-items:center;justify-content:space-between;gap:20px}.source-url{color:#a99dff;word-break:break-all;font-size:13px;margin-top:12px}.note{color:#9eabc5;font-size:13px}.empty{color:#9eabc5}
+@media(max-width:850px){.hero-grid,.lists{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}.source-row{align-items:stretch;flex-direction:column}.primary{width:100%}}
+@media(max-width:520px){.page{width:min(100% - 18px,1180px);padding-top:12px}.hero,.section{border-radius:20px;padding:18px}.grid{grid-template-columns:1fr}.hero h1{font-size:32px}.topbar{align-items:flex-start}.brand{font-size:20px}}
+</style>
+</head>
+<body>
+<main class="page">
+  <div class="topbar">
+    <a class="back" href="/">← العودة إلى زاد</a>
+    <div class="brand">ز<span>اد</span></div>
+  </div>
+  <div id="content"><section class="hero"><p>جارٍ تحميل التفاصيل...</p></section></div>
+</main>
+<script>
+const esc=v=>String(v??"").replace(/[&<>'"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[c]));
+const text=v=>v===null||v===undefined||String(v).trim()===""?"غير محدد":esc(v);
+const bool=v=>v===true?"نعم":v===false?"لا":text(v);
+const typeLabels={scholarship:"🎓 منحة دراسية",course:"💻 كورس",volunteer:"🤝 تطوع",internship:"💼 تدريب",competition:"🏆 مسابقة",program:"🚀 برنامج تعليمي"};
+const typeSteps={
+course:["افتح الرابط الرسمي وتأكد من اسم الكورس والجهة المقدمة.","أنشئ حسابًا أو سجّل الدخول إذا طلبت المنصة ذلك.","راجع السعر والشهادة وشروط الحصول عليها قبل البدء.","أكمل الدروس والاختبارات المطلوبة ثم احصل على إثبات الإتمام أو الشهادة إذا كانت معلنة رسميًا."],
+scholarship:["افتح بوابة التقديم الرسمية وتحقق من الدورة الحالية والموعد.","أنشئ حسابًا في بوابة الجهة أو الجامعة إذا لزم.","اقرأ شروط الأهلية والمستندات المطلوبة حرفيًا.","املأ الطلب وارفع الملفات المطلوبة ثم أرسل الطلب.","احتفظ بتأكيد التقديم وتابع البريد أو الحساب الرسمي."],
+volunteer:["تحقق من أن التسجيل مفتوح وأن العمر مناسب.","اقرأ وصف النشاط وهل هو أونلاين أو حضوري.","أنشئ حسابًا أو أرسل نموذج التسجيل المطلوب.","احتفظ بتأكيد المشاركة واتبع تعليمات الجهة للحصول على إثبات المشاركة إن كان متاحًا."],
+internship:["تحقق من فتح التقديم للفترة الحالية.","راجع العمر والمرحلة الدراسية والمهارات المطلوبة.","جهز السيرة الذاتية وأي ملفات مطلوبة.","قدّم من الصفحة الرسمية وتابع رسالة التأكيد وحالة الطلب."]
+};
+function arr(v){
+ if(Array.isArray(v)) return v.filter(Boolean);
+ if(typeof v==="string"){try{const x=JSON.parse(v);if(Array.isArray(x))return x}catch(e){} return v.trim()? [v] : []}
+ return [];
+}
+function list(v){
+ const a=arr(v);
+ return a.length?`<ul>${a.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`:`<p class="empty">لا توجد تفاصيل مسجلة في الكتالوج. اعتمد على الصفحة الرسمية.</p>`;
+}
+function facts(items){return `<div class="grid">${items.map(([k,v])=>`<div class="fact"><span class="k">${esc(k)}</span><span class="v">${text(v)}</span></div>`).join("")}</div>`}
+function sourceBox(x,isCourse){
+ const url=x.application_url||x.official_url||x.source_url||x.source||x.official_source;
+ return `<section class="section source"><div class="source-row"><div><h2>🔗 المصدر الرسمي والتحقق</h2><div class="note">هذا الرابط هو المرجع الذي يجب الاعتماد عليه لمعرفة حالة التسجيل الحالية والشروط النهائية.</div></div><a class="primary" target="_blank" rel="noopener noreferrer" href="${esc(url||"#")}">${isCourse?"فتح الكورس الرسمي ↗":"التقديم / المصدر الرسمي ↗"}</a></div><div class="source-url">${text(url)}</div>${x.last_checked?`<p class="note">آخر تحقق مسجل: ${text(x.last_checked)} · نوع المصدر: ${text(x.source_type||"official")}</p>`:""}</section>`;
+}
+function genericDocuments(x){
+ const docs=arr(x.required_documents);
+ if(docs.length)return docs;
+ if(x.type==="course")return ["لا توجد مستندات محددة في السجل؛ راجع شروط التسجيل الرسمية."];
+ return ["راجع صفحة التقديم الرسمية لقائمة المستندات الحالية.", "قد تختلف المستندات حسب الجنسية والمرحلة الدراسية ونوع الطلب."];
+}
+async function load(){
+ const params=new URLSearchParams(location.search);
+ let kind=params.get("type")||"opportunity";
+ const id=params.get("id");
+ if(!id){document.getElementById("content").innerHTML='<section class="hero"><h1>العنصر غير محدد</h1><p>افتح الفرصة من صفحة زاد مرة أخرى.</p></section>';return}
+ if(kind==="platform"){location.href="/platform.html?slug="+encodeURIComponent(id);return}
+ const endpoint=kind==="course"?`/api/courses/${encodeURIComponent(id)}`:`/api/opportunities/${encodeURIComponent(id)}`;
+ try{
+  const r=await fetch(endpoint); if(!r.ok)throw new Error("not found");
+  const x=await r.json(); kind=kind==="course"?"course":(x.type||kind);
+  const isCourse=kind==="course";
+  const label=typeLabels[kind]||kind;
+  const steps=arr(x.application_steps).length?arr(x.application_steps):(typeSteps[kind]||["افتح المصدر الرسمي وتحقق من الحالة الحالية.","اقرأ شروط الأهلية والمتطلبات قبل التسجيل أو التقديم.","أكمل النموذج الرسمي وارفع الملفات المطلوبة.","احتفظ بتأكيد التسجيل أو التقديم وتابع تعليمات الجهة."]);
+  const eligibility=x.eligibility_details||x.eligibility||"شروط الأهلية التفصيلية غير مسجلة؛ راجع المصدر الرسمي.";
+  const requirements=x.requirements_details||x.requirements||"المتطلبات التفصيلية غير مسجلة؛ راجع المصدر الرسمي.";
+  const documents=genericDocuments(x);
+  const about=x.about_opportunity||x.description||"لا يوجد وصف منشور.";
+  const age=x.age_min!=null||x.age_max!=null?`${x.age_min!=null?x.age_min:""}${x.age_max!=null?` – ${x.age_max}`:"+"}`:"غير محدد";
+  document.title=(x.title||"التفاصيل")+" | زاد";
+  let factsData;
+  if(isCourse){
+    factsData=[
+      ["الجهة",x.platform],["نوع المحتوى",x.category],["المستوى",x.level],["اللغة",x.language],
+      ["الدراسة", "أونلاين"],["المدة",x.duration],["الوصول المجاني",bool(x.free)],
+      ["الشهادة",x.certificate_available?(x.certificate_type||"متاحة حسب الكورس"):"غير معلنة"],
+      ["السعر",x.price],["المساعدة المالية",bool(x.financial_aid)]
+    ];
+  }else{
+    factsData=[
+      ["الدولة",x.country],["نوع الفرصة",label],["طريقة المشاركة",x.online?"أونلاين":"حضوري / غير محدد"],
+      ["الفئة التعليمية",x.education_level],["المجال",x.category],["اللغة",x.language],
+      ["العمر",age],["التمويل",x.funding_type],["الرسوم الدراسية",bool(x.tuition_covered)],
+      ["السكن",bool(x.accommodation)],["الوجبات",bool(x.meals)],["السفر",bool(x.travel)],
+      ["الراتب / المخصص",x.stipend],["المدة",x.duration],["الشهادة",bool(x.certificate)],
+      ["البداية",x.start_date],["الموعد النهائي",x.deadline],["الحالة",x.status]
+    ];
+    if(kind==="scholarship") factsData.push(["قيمة الجائزة",x.amount],["عدد الجوائز",x.awards],["التكرار",x.recurring_type?`${x.recurring_value||""} ${x.recurring_type}`:"غير متكرر"]);
+  }
+  document.getElementById("content").innerHTML=`
+    <section class="hero">
+      <div class="hero-grid">
+        <div>
+          <span class="badge">${esc(label)}</span>
+          <h1>${text(x.title)}</h1>
+          <div class="provider">${text(x.platform||x.organization)}</div>
+          <p class="intro">${esc(about)}</p>
+        </div>
+        <div><a class="primary" target="_blank" rel="noopener noreferrer" href="${esc(x.application_url||x.official_url||x.source_url||x.source||"#")}">${isCourse?"ابدأ الكورس ↗":"التقديم الرسمي ↗"}</a></div>
+      </div>
+    </section>
+    <section class="section"><div class="section-head"><h2>📌 المعلومات الأساسية</h2></div>${facts(factsData)}</section>
+    <section class="section"><h2>📖 عن الفرصة</h2><p class="intro">${esc(about)}</p></section>
+    <section class="section"><h2>✅ شروط الأهلية</h2>${list(eligibility)}</section>
+    <section class="section"><h2>📋 المتطلبات</h2>${list(requirements)}</section>
+    <section class="section"><h2>📎 المستندات المطلوبة</h2>${list(documents)}</section>
+    <section class="section"><h2>🧭 طريقة التقديم / البدء</h2><ol style="margin:0;padding-right:22px;color:#d3daea">${steps.map(s=>`<li style="margin:7px 0">${esc(s)}</li>`).join("")}</ol></section>
+    ${sourceBox(x,isCourse)}
+  `;
+ }catch(e){
+  document.getElementById("content").innerHTML='<section class="hero"><h1>تعذر تحميل التفاصيل</h1><p>تأكد من تشغيل الخادم ثم افتح الفرصة من الصفحة الرئيسية.</p><a class="back" href="/">العودة إلى زاد</a></section>';
+ }
+}
+load();
+</script>
+</body>
+</html>
